@@ -120,12 +120,12 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 // this is an awful solution. It passes. But it's awful.
 let findShortest = (data) => {
   let shorty = data.reduce((accumulator, element) => {
-    if(parseInt(element.height) < accumulator.height) {
+    if(accumulator.height === 0 || parseInt(element.height) < accumulator.height) {
       accumulator.height = parseInt(element.height);
       accumulator.name = element.name;
     }
     return accumulator;
-  }, {height: 1000, name: ''});
+  }, {height: 0, name: ''});
   return shorty.name;
 };
 
